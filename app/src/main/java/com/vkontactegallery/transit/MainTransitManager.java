@@ -1,4 +1,4 @@
-package com.vkontactegallery.tranzit;
+package com.vkontactegallery.transit;
 
 import android.app.Activity;
 
@@ -6,6 +6,7 @@ import com.fsm.transit.core.AbstractTransitManager;
 import com.fsm.transit.core.TransitData;
 import com.fsm.transit.core.TransitResultData;
 import com.vkontactegallery.view.fragment.AlbumsFragment;
+import com.vkontactegallery.view.fragment.LoginFragment;
 import com.vkontactegallery.view.fragment.PhotosFragment;
 
 public class MainTransitManager extends AbstractTransitManager<FragmentAction> {
@@ -21,5 +22,6 @@ public class MainTransitManager extends AbstractTransitManager<FragmentAction> {
 
     {
         transitionsMap.put(new TransitData<FragmentAction>(AlbumsFragment.class, FragmentAction.PHOTOS), new TransitResultData<FragmentAction>(PhotosFragment.class, true));
+        transitionsMap.put(new TransitData<FragmentAction>(LoginFragment.class, FragmentAction.ALBUMS), new TransitResultData<FragmentAction>(AlbumsFragment.class, true));
     }
 }

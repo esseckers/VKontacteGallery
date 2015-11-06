@@ -2,14 +2,14 @@ package com.vkontactegallery.view.activity;
 
 import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 
 import com.fsm.transit.core.ITransitManager;
-import com.vkontactegallery.tranzit.FragmentAction;
+import com.redmadrobot.chronos.gui.activity.ChronosActivity;
+import com.vkontactegallery.transit.FragmentAction;
 
 
-public abstract class AbstractActivity extends AppCompatActivity {
+public abstract class AbstractActivity extends ChronosActivity {
 
     protected ITransitManager<FragmentAction> transitManager;
 
@@ -28,7 +28,7 @@ public abstract class AbstractActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             Class<? extends Fragment> clazz = getFragmentForStart();
             if (clazz != null && getTransitManager() != null) {
-                getTransitManager().switchFragment(clazz, getIntent().getExtras(), false);
+                getTransitManager().switchFragment(getFragmentForStart(), getIntent().getExtras(), false);
             }
         }
         initView();
@@ -37,12 +37,12 @@ public abstract class AbstractActivity extends AppCompatActivity {
     protected void initView() {
     }
 
-    public ITransitManager<FragmentAction> getTransitManager() {
-        return transitManager;
-    }
-
     protected Class<? extends Fragment> getFragmentForStart() {
         return null;
+    }
+
+    public ITransitManager<FragmentAction> getTransitManager() {
+        return transitManager;
     }
 
     protected abstract void createTransitManager();
@@ -58,4 +58,5 @@ public abstract class AbstractActivity extends AppCompatActivity {
         else
             finish();
     }
+
 }

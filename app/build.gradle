@@ -17,20 +17,26 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:22.2.1'
-    compile 'com.vk:androidsdk:+'
     compile 'com.android.support:design:22.2.1'
-    compile 'io.realm:realm-android:0.72.0'
+    compile 'org.apache.commons:commons-lang3:3.0'
+    compile 'com.squareup.retrofit:retrofit:1.7.1'
+    compile 'com.squareup.retrofit:converter-jackson:1.9.0'
+    compile 'io.realm:realm-android:0.84.0'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.fsm.transit:transit:1.0'
     compile 'com.redmadrobot:chronos:1.0.5'
-    compile 'com.squareup.retrofit:retrofit:1.7.1'
-    compile 'com.squareup.retrofit:converter-jackson:1.9.0'
     compile([group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.6.1'],
             [group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.6.1'],
             [group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.6.1'])

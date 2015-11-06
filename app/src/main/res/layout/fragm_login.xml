@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="VKontacte Galley"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textSize="18sp"
+        android:text="Введите id вашего профайла вконтакте"
+        android:textColor="@android:color/holo_blue_dark" />
+
+    <EditText
+        android:id="@+id/et_user_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="Пример: 52156020 или stacy13"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/holo_blue_light" />
+
+    <Button
+        android:id="@+id/btn_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="@android:color/holo_blue_dark"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Поехали :)"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white" />
+
+</LinearLayout>
