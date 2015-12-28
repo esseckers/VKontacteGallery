@@ -8,10 +8,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class Response<T> {
 
-
     @JsonProperty("response")
     private T data;
-
 
     public T getData() {
         return data;

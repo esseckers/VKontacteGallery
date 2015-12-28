@@ -2,10 +2,12 @@ package com.vkontactegallery.remote.service;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.vk.sdk.VKAccessToken;
 import com.vkontactegallery.Environment;
 import com.vkontactegallery.model.Response;
 import com.vkontactegallery.remote.IService;
 
+import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
 import retrofit.converter.JacksonConverter;
 
@@ -21,6 +23,12 @@ public abstract class AbstractRestService<T> {
             iRestService = new RestAdapter.Builder()
                     .setEndpoint(Environment.SERVER)
                     .setConverter(new JacksonConverter(getObjectMapper()))
+                    .setRequestInterceptor(new RequestInterceptor() {
+                        @Override
+                        public void intercept(RequestFacade requestFacade) {
+                            requestFacade.addHeader("Authorization", "Bearer " + VKAccessToken.currentToken().accessToken);
+                        }
+                    })
                     .setLogLevel(Environment.LOG_LEVEL)
                     .build()
                     .create(IService.class);

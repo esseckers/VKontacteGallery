@@ -1,11 +1,14 @@
 package com.vkontactegallery;
 
 import android.app.Application;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.vk.sdk.VKSdk;
+import com.vkontactegallery.push.RegistrationIntentService;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -28,6 +31,7 @@ public class TheApplication extends Application {
         Realm.deleteRealm(realmConfiguration);
         Realm.setDefaultConfiguration(realmConfiguration);
         ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(this));
+        VKSdk.initialize(this);
     }
 
     public SharedPreferences getPreferences() {

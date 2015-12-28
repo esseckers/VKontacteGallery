@@ -22,6 +22,4 @@ public abstract class AbstractOperation<T> extends ChronosOperation<Response<T>>
         abstractRPCService.run();
         return abstractRPCService.getServiceResponseObject();
     }
-
-
 }

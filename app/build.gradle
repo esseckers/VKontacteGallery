@@ -35,7 +35,9 @@ dependencies {
     compile 'io.realm:realm-android:0.84.0'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
     compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.google.android.gms:play-services-gcm:8.4.0'
     compile 'com.fsm.transit:transit:1.0'
+    compile 'com.vk:androidsdk:+'
     compile 'com.redmadrobot:chronos:1.0.5'
     compile([group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.6.1'],
             [group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.6.1'],
